@@ -4,7 +4,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'ng-mono': ['Space Mono', 'monospace'],
+        'ng-text': ['Space Grotesk', 'monospace'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
