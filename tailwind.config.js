@@ -9,6 +9,9 @@ module.exports = {
         'ng-mono': ['Space Mono', 'monospace'],
         'ng-text': ['Space Grotesk', 'monospace'],
       },
+      colors: {
+        'ng-cream': '#F3F3F5'
+      }
     },
   },
   plugins: [require("daisyui")],

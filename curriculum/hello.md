@@ -1,13 +1,8 @@
 ---
-id: bd7123c8c441eddfaeb5bdef
 title: Say Hello to HTML Elements
-challengeType: 0
-videoUrl: 'https://scrimba.com/p/pVMPUv/cE8Gpt2'
-forumTopicId: 18276
-dashedName: say-hello-to-html-elements
 ---
 
-# --Pahami--
+# Perjalanan dimulai dengan HTML
 
 Welcome to freeCodeCamp's HTML coding challenges. These will walk you through web development step-by-step.
 
@@ -31,7 +26,21 @@ Closing tags look like this:
 
 The only difference between opening and closing tags is the forward slash after the opening bracket of a closing tag.
 
-Each challenge has tests you can run at any time by clicking the "Run tests" button. When you pass all tests, you'll be prompted to submit your solution and go to the next coding challenge.
+- hello
+- world
+- asdasd
+  - adsasd
+  - asdasd
+- asdasd
+
+1. Name
+2. asdfasd
+3. asdasd
+4. asdasd
+
+Each [challenge](https://google.com) has tests you can run at any time by clicking the "Run tests" button. When you pass all tests, you'll be prompted to submit your solution and go to the next coding challenge.
+
+
 
 # --instructions--
 

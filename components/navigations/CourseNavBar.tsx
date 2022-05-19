@@ -4,7 +4,7 @@ import { FiHelpCircle } from "react-icons/fi";
 
 export default function CourseNavBar() {
   return (
-    <div className="navbar bg-primary fixed top-0">
+    <div className="navbar bg-primary fixed top-0 border-b border-white">
       <div className="flex-1">
         <Link href="/">
           <a className="btn btn-ghost normal-case text-xl text-white font-ng-mono">
