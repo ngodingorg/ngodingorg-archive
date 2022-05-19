@@ -34,9 +34,9 @@ function CourseContent({ content }: any) {
     // hidden behind navbar and/or bottom bar
     <div className="flex flex-1 flex-row w-full h-screen py-16">
       <div className="w-1/3 overflow-y-auto">
-        <div className="bg-ng-cream flex flex-row items-center px-6 py-3">
+        <div className="bg-yellow-400 flex flex-row items-center px-6 py-3">
           <FiBookOpen />
-          <p className="font-ng-text text-base font-semibold ml-2">Pahami</p>
+          <p className="font-ng-text text-base font-semibold ml-2">Pengenalan HTML</p>
         </div>
         <div className="px-6 pb-6 font-ng-text text-base">
           <MarkdownSection content={content} />
@@ -86,7 +86,7 @@ function MarkdownSection({ content }: any) {
         h1({ children }) {
           return (
             <h1 className="font-ng-mono text-lg font-bold mb-3 mt-6">
-              {children}
+              <span className="text-yellow-400">&gt;</span> {children}
             </h1>
           );
         },
@@ -131,7 +131,7 @@ function MarkdownSection({ content }: any) {
 Home.getInitialProps = async () => {
   // const { id } = context.query;
   // @ts-ignore
-  const content = await import(`../curriculum/hello.md`);
+  const content = await import(`../curriculum/html/1.md`);
   const data = matter(content.default);
   return { ...data };
 };
