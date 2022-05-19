@@ -4,6 +4,8 @@ import CourseNavBar from "../components/navigations/CourseNavBar";
 import BottomBar from "../components/navigations/BottomBar";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
+import { default as SyntaxHighlighter } from "react-syntax-highlighter";
+import { irBlack } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const Home: NextPage = ({ content }: any) => {
   return (
@@ -44,7 +46,32 @@ function CourseContent({ content }: any) {
 }
 
 function CourseGuide({ content }: any) {
-  return <ReactMarkdown>{content}</ReactMarkdown>;
+  return (
+    <ReactMarkdown
+      components={{
+        code({ node, inline, className, children, ...props }) {
+          const match = /language-(\w+)/.exec(className || "");
+          return !inline && match ? (
+            <SyntaxHighlighter
+              // @ts-ignore
+              style={irBlack}
+              language={match[1]}
+              PreTag="div"
+              {...props}
+            >
+              {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
+          ) : (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          );
+        },
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
 }
 
 Home.getInitialProps = async () => {
