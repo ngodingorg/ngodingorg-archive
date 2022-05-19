@@ -21,4 +21,4 @@ Meskipun kami berada di tahap awal, kami bertujuan untuk menegakkan integritas a
 Kontent dalam repositori ini terikat oleh lisensi berikut:
 
 - Perangkat lunak komputer terikat dalam lisensi [GNU GPLv3](LICENSE.md);
-- Perangkat pembelajaran dalam direktori `[/curriculum](curriculum)` termasuk seluruh berkas dan sub-direktorinya terikat dalam lisensi [CC-BY-SA-4.0](/curriculum/LICENSE.md).
+- Perangkat pembelajaran dalam direktori [`/curriculum`](curriculum/) termasuk seluruh berkas dan sub-direktorinya terikat dalam lisensi [CC-BY-SA-4.0](/curriculum/LICENSE.md).
