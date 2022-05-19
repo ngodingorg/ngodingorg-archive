@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import CourseNavBar from "../components/navigations/CourseNavBar";
-import Link from "next/link";
+import BottomBar from "../components/navigations/BottomBar";
+import ReactMarkdown from "react-markdown";
+import matter from "gray-matter";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ content }: any) => {
   return (
     <div>
       <Head>
@@ -14,7 +16,7 @@ const Home: NextPage = () => {
 
       <main>
         <CourseNavBar />
-        <CourseContent />
+        <CourseContent content={content} />
         <BottomBar />
       </main>
     </div>
@@ -23,13 +25,13 @@ const Home: NextPage = () => {
 
 export default Home;
 
-function CourseContent() {
+function CourseContent({ content }: any) {
   return (
     // Padding vertical 64px (py-16) is used to make sure the content is not
     // hidden behind navbar and/or bottom bar
-    <div className="flex flex-1 flex-row w-full h-screen py-16"> 
-      <div className="w-1/3">
-        <p>1</p>
+    <div className="flex flex-1 flex-row w-full h-screen py-16">
+      <div className="w-1/3 overflow-y-auto">
+        <CourseGuide content={content} />
       </div>
       <div className="w-1/3">
         <p>2</p>
@@ -41,21 +43,14 @@ function CourseContent() {
   );
 }
 
-function BottomBar() {
-  return (
-    <div className="navbar bg-primary bottom-0 fixed">
-      <div className="flex-1 justify-end">
-        <Link href="#">
-          <a className="btn btn-ghost normal-case text-md font-normal text-white font-ng-text">
-            Sebelumnya
-          </a>
-        </Link>
-        <Link href="#">
-          <a className="btn btn-outline normal-case text-md font-normal text-white font-ng-text hover:bg-white hover:text-primary">
-            Selanjutnya
-          </a>
-        </Link>
-      </div>
-    </div>
-  );
+function CourseGuide({ content }: any) {
+  return <ReactMarkdown>{content}</ReactMarkdown>;
 }
+
+Home.getInitialProps = async () => {
+  // const { id } = context.query;
+  // @ts-ignore
+  const content = await import(`../curriculum/hello.md`);
+  const data = matter(content.default);
+  return { ...data };
+};
