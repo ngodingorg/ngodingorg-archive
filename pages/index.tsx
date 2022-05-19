@@ -5,7 +5,7 @@ import BottomBar from "../components/navigations/BottomBar";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import { default as SyntaxHighlighter } from "react-syntax-highlighter";
-import { irBlack } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { defaultStyle } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { FiBookOpen } from "react-icons/fi";
 
 const Home: NextPage = ({ content }: any) => {
@@ -62,7 +62,7 @@ function MarkdownSection({ content }: any) {
             <SyntaxHighlighter
               className="mb-3"
               // @ts-ignore
-              style={irBlack}
+              style={defaultStyle}
               language={match[1]}
               PreTag="div"
               {...props}
@@ -70,7 +70,15 @@ function MarkdownSection({ content }: any) {
               {String(children).replace(/\n$/, "")}
             </SyntaxHighlighter>
           ) : (
-            <code className={className} {...props}>
+            <code
+              className={className}
+              style={{
+                backgroundColor: "#F0F0F0",
+                paddingLeft: 2,
+                paddingRight: 2,
+              }}
+              {...props}
+            >
               {children}
             </code>
           );
