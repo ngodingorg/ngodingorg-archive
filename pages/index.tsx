@@ -3,7 +3,7 @@ import Head from "next/head";
 import CourseNavBar from "../components/navigations/CourseNavBar";
 import BottomBar from "../components/navigations/BottomBar";
 import matter from "gray-matter";
-import { FiBookOpen } from "react-icons/fi";
+import { FiBookOpen, FiGlobe } from "react-icons/fi";
 import Guide from "../components/course/Guide";
 import Editor from "@monaco-editor/react";
 import { useState } from "react";
@@ -75,11 +75,21 @@ function CourseContent({ content }: any) {
         />
       </div>
       <div className="w-1/3">
+        <div
+          className="bg-white flex flex-row items-center fixed top-16 w-1/3"
+          style={{ marginTop: 1 }}
+        >
+        <div className="bg-slate-100 p-4" style={{color: "#94a3b8"}}>
+          <FiGlobe />
+        </div>
+          <p className="font-ng-text text-sm font-normal ml-4">http://localhost:8000</p>
+        </div>
         <iframe
           title="output"
           sandbox="allow-scripts"
           height="100%"
           width="100%"
+          className="pt-16"
           frameBorder="0"
           srcDoc={`<html><body>${editorContent}</body></html>`}
         />
