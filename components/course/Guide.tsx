@@ -2,7 +2,6 @@ import ReactMarkdown from "react-markdown";
 import { default as SyntaxHighlighter } from "react-syntax-highlighter";
 import { defaultStyle } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-
 export default function Guide({ content }: any) {
   return (
     <ReactMarkdown
@@ -34,31 +33,38 @@ export default function Guide({ content }: any) {
             </code>
           );
         },
-        h1({ children }) {
+        h1({ ...props }) {
           return (
             <h1 className="font-ng-mono text-lg font-bold mb-3 mt-6">
-              <span className="text-yellow-400">&gt;</span> {children}
+              <span className="text-yellow-400">&gt;</span> {props.children}
             </h1>
           );
         },
-        h2({ children }) {
+
+        h2({ ...props }) {
           return (
             <h1 className="font-ng-text text-md font-semibold mb-3 mt-6">
-              {children}
+              {props.children}
             </h1>
           );
         },
-        p({ children }) {
-          return <p className="font-ng-text text-base mb-3">{children}</p>;
+        p({ ...props }) {
+          return (
+            <p className="font-ng-text text-base mb-3">{props.children}</p>
+          );
         },
-        ul({ children }) {
-          return <ul className="list-disc list-inside mb-3">{children}</ul>;
+        ul({ ...props }) {
+          return (
+            <ul className="list-disc list-inside mb-3">{props.children}</ul>
+          );
         },
-        li({ children }) {
-          return <li className="ml-2">{children}</li>;
+        li({ ...props }) {
+          return <li className="ml-2">{props.children}</li>;
         },
-        ol({ children }) {
-          return <ul className="list-decimal list-inside mb-3">{children}</ul>;
+        ol({ ...props }) {
+          return (
+            <ul className="list-decimal list-inside mb-3">{props.children}</ul>
+          );
         },
         a({ ...props }) {
           return (
