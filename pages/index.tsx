@@ -3,13 +3,12 @@ import Head from "next/head";
 import CourseNavBar from "../components/navigations/CourseNavBar";
 import BottomBar from "../components/navigations/BottomBar";
 import matter from "gray-matter";
-import { FiBookOpen, FiCode } from "react-icons/fi";
-import dynamic from "next/dynamic";
+import { FiBookOpen } from "react-icons/fi";
 import Guide from "../components/course/Guide";
+import Editor from "@monaco-editor/react";
 import { useState } from "react";
-const CodeEditor = dynamic(import("../components/course/Editor"), {
-  ssr: false,
-});
+
+const defaultValue = "<p>Halooo</p>";
 
 const Home: NextPage = ({ content }: any) => {
   return (
@@ -32,6 +31,10 @@ const Home: NextPage = ({ content }: any) => {
 export default Home;
 
 function CourseContent({ content }: any) {
+  const [editorContent, setEditorContent] = useState(defaultValue);
+  function handleEditorChange(value: any) {
+    setEditorContent(value);
+  }
   return (
     // Padding vertical 64px (py-16) is used to make sure the content is not
     // hidden behind navbar and/or bottom bar
@@ -52,19 +55,33 @@ function CourseContent({ content }: any) {
       </div>
       <div className="w-1/3 bg-ng-vs-code-secondary">
         <div>
-          <button onClick={() => {}} className="ng-editor-tab ng-editor-tab-active">
+          <button
+            onClick={() => {}}
+            className="ng-editor-tab ng-editor-tab-active"
+          >
             index.html
           </button>
         </div>
-        <CodeEditor />
+        <Editor
+          theme="vs-dark"
+          height="100%"
+          options={{
+            fontSize: 14,
+          }}
+          path="index.html"
+          defaultLanguage="html"
+          defaultValue={defaultValue}
+          onChange={handleEditorChange}
+        />
       </div>
       <div className="w-1/3">
         <iframe
           title="output"
-          sandbox="alow-scripts"
+          sandbox="allow-scripts"
           height="100%"
           width="100%"
           frameBorder="0"
+          srcDoc={`<html><body>${editorContent}</body></html>`}
         />
       </div>
     </div>
