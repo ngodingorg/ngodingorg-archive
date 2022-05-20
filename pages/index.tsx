@@ -66,7 +66,7 @@ function CourseContent({ content }: any) {
             Pengenalan HTML
           </p>
         </div>
-        <div className="px-6 pb-6 font-ng-text text-base">
+        <div className="px-6 pb-6 pt-12 font-ng-text text-base">
           <Guide content={content} />
         </div>
       </div>
