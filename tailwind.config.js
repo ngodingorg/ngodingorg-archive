@@ -10,7 +10,9 @@ module.exports = {
         'ng-text': ['Space Grotesk', 'monospace'],
       },
       colors: {
-        'ng-cream': '#F3F3F5'
+        'ng-cream': '#F3F3F5',
+        'ng-vs-code-secondary': '#252526',
+        'ng-vs-code-primary': '#1E1E1E'
       }
     },
   },
