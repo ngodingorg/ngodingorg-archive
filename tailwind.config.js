@@ -11,7 +11,7 @@ module.exports = {
       },
       colors: {
         'ng-cream': '#F3F3F5',
-        'ng-vs-code-secondary': '#252526',
+        'ng-vs-code-secondary': '#2D2D2D',
         'ng-vs-code-primary': '#1E1E1E'
       }
     },

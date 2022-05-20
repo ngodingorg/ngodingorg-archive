@@ -4,9 +4,12 @@ import CourseNavBar from "../components/navigations/CourseNavBar";
 import BottomBar from "../components/navigations/BottomBar";
 import matter from "gray-matter";
 import { FiBookOpen, FiCode } from "react-icons/fi";
-import dynamic from "next/dynamic"; 
+import dynamic from "next/dynamic";
 import Guide from "../components/course/Guide";
-const CodeEditor = dynamic(import("../components/course/Editor"), { ssr: false, });
+import { useState } from "react";
+const CodeEditor = dynamic(import("../components/course/Editor"), {
+  ssr: false,
+});
 
 const Home: NextPage = ({ content }: any) => {
   return (
@@ -34,7 +37,10 @@ function CourseContent({ content }: any) {
     // hidden behind navbar and/or bottom bar
     <div className="flex flex-1 flex-row w-full h-screen py-16">
       <div className="w-1/3 overflow-y-auto">
-        <div className="bg-yellow-400 flex flex-row items-center px-6 py-3">
+        <div
+          className="bg-yellow-400 flex flex-row items-center px-6 py-3 fixed top-16 w-1/3"
+          style={{ marginTop: 1 }}
+        >
           <FiBookOpen />
           <p className="font-ng-text text-base font-semibold ml-2">
             Pengenalan HTML
@@ -44,10 +50,11 @@ function CourseContent({ content }: any) {
           <Guide content={content} />
         </div>
       </div>
-      <div className="w-1/3 bg-ng-vs-code-primary">
-        <div className="bg-ng-vs-code-secondary flex flex-row items-center px-6 py-3" style={{color: 'white'}}>
-          <FiCode />
-          <p className="font-ng-text text-base text-white font-semibold ml-2">Editor Kode</p>
+      <div className="w-1/3 bg-ng-vs-code-secondary">
+        <div>
+          <button onClick={() => {}} className="ng-editor-tab ng-editor-tab-active">
+            index.html
+          </button>
         </div>
         <CodeEditor />
       </div>
@@ -63,7 +70,6 @@ function CourseContent({ content }: any) {
     </div>
   );
 }
-
 
 Home.getInitialProps = async () => {
   // const { id } = context.query;

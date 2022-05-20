@@ -3,15 +3,22 @@ import React from "react";
 import Editor from "@monaco-editor/react";
 
 function CodeEditor() {
+  const file = {
+    name: "index.html",
+    language: "html",
+    value: "<p>Halooo</p>",
+  };
+
   return (
     <Editor
       theme="vs-dark"
       height="100%"
-      defaultLanguage="html"
-      defaultValue="<p>Halooo</p>"
       options={{
-          fontSize: 14,
-        }}
+        fontSize: 14,
+      }}
+      path={file.name}
+      defaultLanguage={file.language}
+      defaultValue={file.value}
     />
   );
 }

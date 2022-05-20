@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .ng-editor-tab {
+    @apply text-xs font-light normal-case font-mono p-4 bg-ng-vs-code-secondary text-gray-400;
+  }
+  .ng-editor-tab-active {
+    @apply bg-ng-vs-code-primary text-white font-bold;
+  }
+}
