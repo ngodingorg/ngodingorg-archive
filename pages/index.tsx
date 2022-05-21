@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +12,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <p>Home page</p>
+        <Link href="/course/html/1">
+          <p className="underline font-ng-mono cursor-pointer">Go to example course</p>
+        </Link>
       </main>
     </div>
   );
