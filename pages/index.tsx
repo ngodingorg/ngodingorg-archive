@@ -29,8 +29,7 @@ const Home: NextPage = ({ content, data, seed }: any) => {
 export default Home;
 
 function CourseContent({ content, data, seed }: any) {
-console.log(data)
-  const defaultValue = seed.default
+  const defaultValue = seed.default;
   const [editorContent, setEditorContent] = useState(defaultValue);
   const [srcDoc, setSrcDoc] = useState(defaultValue);
 
@@ -62,7 +61,9 @@ console.log(data)
           style={{ marginTop: 1 }}
         >
           <FiBookOpen />
-          <p className="font-ng-text text-base font-semibold ml-2">{data.courseTitle}</p>
+          <p className="font-ng-text text-base font-semibold ml-2">
+            {data.courseTitle}
+          </p>
         </div>
         <div className="px-6 pb-6 pt-12 font-ng-text text-base">
           <Guide content={content} />
