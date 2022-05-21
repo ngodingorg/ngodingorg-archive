@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react'
 
 
-export default function BottomBar() {
+export default function CourseBottomBar() {
   return (
     <div className="navbar bg-primary bottom-0 fixed border-t border-white">
       <div className="flex-1 justify-end">
