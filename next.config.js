@@ -6,6 +6,10 @@ module.exports = {
       test: /\.md$/,
       use: 'raw-loader',
     })
+    config.module.rules.push({
+      test: /\.html$/,
+      use: 'raw-loader',
+    })
     return config
   }
 }

@@ -8,9 +8,7 @@ import Guide from "../components/course/Guide";
 import Editor from "@monaco-editor/react";
 import { useEffect, useState } from "react";
 
-const defaultValue = "<p>Judul Bab</p>\n<p>Sub-bab 1</p>\n<p>Teks isi sub-bab 1</p>\n<p>Sub-bab 2</p>\n<p>Teks isi sub-bab 2</p>";
-
-const Home: NextPage = ({ content }: any) => {
+const Home: NextPage = ({ content, seed }: any) => {
   return (
     <div>
       <Head>
@@ -21,7 +19,7 @@ const Home: NextPage = ({ content }: any) => {
 
       <main>
         <CourseNavBar />
-        <CourseContent content={content} />
+        <CourseContent content={content} seed={seed} />
         <BottomBar />
       </main>
     </div>
@@ -30,7 +28,8 @@ const Home: NextPage = ({ content }: any) => {
 
 export default Home;
 
-function CourseContent({ content }: any) {
+function CourseContent({ content, seed }: any) {
+  const defaultValue = seed.default
   const [editorContent, setEditorContent] = useState(defaultValue);
   const [srcDoc, setSrcDoc] = useState(defaultValue);
 
@@ -145,7 +144,10 @@ function CourseContent({ content }: any) {
 Home.getInitialProps = async () => {
   // const { id } = context.query;
   // @ts-ignore
-  const content = await import(`../curriculum/html/1/course.md`);
+  const content = await import(`../curriculum/html/2/course.md`);
   const data = matter(content.default);
-  return { ...data };
+
+  // @ts-ignore
+  const seed = await import(`../curriculum/html/2/seed.html`);
+  return { ...data, seed };
 };
