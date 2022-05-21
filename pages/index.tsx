@@ -8,7 +8,7 @@ import Guide from "../components/course/Guide";
 import Editor from "@monaco-editor/react";
 import { useEffect, useState } from "react";
 
-const Home: NextPage = ({ content, seed }: any) => {
+const Home: NextPage = ({ content, data, seed }: any) => {
   return (
     <div>
       <Head>
@@ -19,7 +19,7 @@ const Home: NextPage = ({ content, seed }: any) => {
 
       <main>
         <CourseNavBar />
-        <CourseContent content={content} seed={seed} />
+        <CourseContent content={content} data={data} seed={seed} />
         <BottomBar />
       </main>
     </div>
@@ -28,7 +28,8 @@ const Home: NextPage = ({ content, seed }: any) => {
 
 export default Home;
 
-function CourseContent({ content, seed }: any) {
+function CourseContent({ content, data, seed }: any) {
+console.log(data)
   const defaultValue = seed.default
   const [editorContent, setEditorContent] = useState(defaultValue);
   const [srcDoc, setSrcDoc] = useState(defaultValue);
@@ -61,9 +62,7 @@ function CourseContent({ content, seed }: any) {
           style={{ marginTop: 1 }}
         >
           <FiBookOpen />
-          <p className="font-ng-text text-base font-semibold ml-2">
-            Pengenalan HTML
-          </p>
+          <p className="font-ng-text text-base font-semibold ml-2">{data.courseTitle}</p>
         </div>
         <div className="px-6 pb-6 pt-12 font-ng-text text-base">
           <Guide content={content} />
