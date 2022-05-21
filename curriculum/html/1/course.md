@@ -1,3 +1,11 @@
+---
+id: learn-1805202201
+title: Perjalanan dimulai dengan HTML
+courseStart: true
+courseId: course-1805202201
+courseTitle: Memulai dengan HTML
+---
+
 # Perjalanan dimulai dengan HTML
 
 Selamat datang di tantangan pertama ngoding.org. Tantangan-tantangan ini akan memandu kamu dalam mengarungi perjalanan pengembangan web yang panjang.
@@ -38,7 +46,7 @@ Coba kamu jalankan kode di samping dengan klik tombol **Jalankan**. Kode di samp
 
 # Tantangan
 
-Ubah kode di samping agar menampilkan teks `Halo, Indonesia!`
+Ubah kode di samping agar menampilkan teks `Halo, apa kabar?`
 
 # Ringkasan
 
