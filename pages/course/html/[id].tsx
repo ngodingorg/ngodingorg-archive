@@ -6,7 +6,6 @@ import CourseBottomBar from "../../../components/navigations/CourseBottomBar";
 import CourseContent from "../../../components/course/CourseContent";
 
 const CoursePage: NextPage = ({ content, data, seed, solutions }: any) => {
-// console.log(data)
   return (
     <div>
       <Head>

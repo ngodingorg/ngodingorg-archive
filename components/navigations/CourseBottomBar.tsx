@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -10,19 +9,18 @@ export default function CourseBottomBar({ data }: any) {
   return (
     <div className="navbar bg-primary bottom-0 fixed border-t border-white">
       <div className="flex-1 justify-end">
-        <Link href={data.courseStart ? "#" : `${parentPath}/${courseIndex - 1}`}>
-          <a
-            className={`border py-2.5 px-4 ${
-              data.courseStart
-                ? "cursor-not-allowed border-gray-500 text-gray-400"
-                : "cursor-pointer border-white text-white hover:border-yellow-400"
-            } normal-case text-md font-normal text-white font-ng-text mr-2`}
-          >
-            Sebelumnya
-          </a>
-        </Link>
-        <Link href={data.courseEnd ? "#" : `${parentPath}/${courseIndex + 1}`}>
         <a
+          href={data.courseStart ? "#" : `${parentPath}/${courseIndex - 1}`}
+          className={`border py-2.5 px-4 ${
+            data.courseStart
+              ? "cursor-not-allowed border-gray-500 text-gray-400"
+              : "cursor-pointer border-white text-white hover:border-yellow-400"
+          } normal-case text-md font-normal text-white font-ng-text mr-2`}
+        >
+          Sebelumnya
+        </a>
+        <a
+          href={data.courseEnd ? "#" : `${parentPath}/${courseIndex + 1}`}
           className={`py-2.5 px-4 ${
             data.courseEnd
               ? "cursor-not-allowed bg-gray-800 text-gray-100"
@@ -31,7 +29,6 @@ export default function CourseBottomBar({ data }: any) {
         >
           Selanjutnya
         </a>
-	</Link>
       </div>
     </div>
   );
