@@ -8,7 +8,7 @@ import Guide from "../components/course/Guide";
 import Editor from "@monaco-editor/react";
 import { useEffect, useState } from "react";
 
-const defaultValue = "<p>Halooo</p>";
+const defaultValue = "<p>Judul Bab</p>\n<p>Sub-bab 1</p>\n<p>Teks isi sub-bab 1</p>\n<p>Sub-bab 2</p>\n<p>Teks isi sub-bab 2</p>";
 
 const Home: NextPage = ({ content }: any) => {
   return (
@@ -145,7 +145,7 @@ function CourseContent({ content }: any) {
 Home.getInitialProps = async () => {
   // const { id } = context.query;
   // @ts-ignore
-  const content = await import(`../curriculum/html/1.md`);
+  const content = await import(`../curriculum/html/1/course.md`);
   const data = matter(content.default);
   return { ...data };
 };
