@@ -9,9 +9,9 @@ const CoursePage: NextPage = ({ content, data, seed, solutions }: any) => {
   return (
     <div>
       <Head>
-        <title>{data.courseTitle} - ngoding.org</title>
+        <title>{data.title} - ngoding.org</title>
         <meta name="description" content="ngoding.org" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
       <main>

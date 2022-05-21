@@ -7,7 +7,7 @@ const Home: NextPage = () => {
       <Head>
         <title>ngoding.org</title>
         <meta name="description" content="ngoding.org" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
       <main>
