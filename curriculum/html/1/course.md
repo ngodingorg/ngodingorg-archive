@@ -1,5 +1,7 @@
 ---
 id: learn-1805202201
+title: Perjalanan dimulai dengan HTML
+courseStart: true
 courseId: course-1805202201
 courseTitle: Memulai dengan HTML
 ---

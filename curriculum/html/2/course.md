@@ -1,5 +1,7 @@
 ---
 id: learn-2005202201
+title: Heading, sebuah penanda
+courseEnd: true
 courseId: course-1805202201
 courseTitle: Memulai dengan HTML
 ---
