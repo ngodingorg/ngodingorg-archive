@@ -8,7 +8,7 @@ import Guide from "../components/course/Guide";
 import Editor from "@monaco-editor/react";
 import { useEffect, useState } from "react";
 
-const Home: NextPage = ({ content, data, seed }: any) => {
+const Home: NextPage = ({ content, data, seed, solutions }: any) => {
   return (
     <div>
       <Head>
@@ -19,7 +19,12 @@ const Home: NextPage = ({ content, data, seed }: any) => {
 
       <main>
         <CourseNavBar />
-        <CourseContent content={content} data={data} seed={seed} />
+        <CourseContent
+          content={content}
+          data={data}
+          seed={seed}
+          solutions={solutions}
+        />
         <BottomBar />
       </main>
     </div>
@@ -28,8 +33,9 @@ const Home: NextPage = ({ content, data, seed }: any) => {
 
 export default Home;
 
-function CourseContent({ content, data, seed }: any) {
+function CourseContent({ content, data, seed, solutions }: any) {
   const defaultValue = seed.default;
+  const solutionsValue = solutions.default;
   const [editorContent, setEditorContent] = useState(defaultValue);
   const [srcDoc, setSrcDoc] = useState(defaultValue);
 
@@ -49,6 +55,15 @@ function CourseContent({ content, data, seed }: any) {
   function resetCode() {
     setEditorContent(defaultValue);
     setSrcDoc(`<html><body>${defaultValue}</body></html>`);
+  }
+
+  function checkAnswer(input: string, solutions: string) {
+    // TODO: Improve check code
+    if (input !== solutions) {
+      console.log("answer is incorrect");
+      return;
+    }
+    console.log("answer is correct");
   }
 
   return (
@@ -95,7 +110,10 @@ function CourseContent({ content, data, seed }: any) {
           style={{ marginTop: 1 }}
         >
           <div className="tooltip" data-tip="Periksa jawaban yang kamu berikan">
-            <button className="font-ng-mono font-semibold bg-yellow-400 py-3 px-6">
+            <button
+              onClick={() => checkAnswer(editorContent, solutionsValue)}
+              className="font-ng-mono font-semibold bg-yellow-400 py-3 px-6"
+            >
               Periksa
             </button>
           </div>
@@ -149,5 +167,8 @@ Home.getInitialProps = async () => {
 
   // @ts-ignore
   const seed = await import(`../curriculum/html/2/seed.html`);
-  return { ...data, seed };
+
+  // @ts-ignore
+  const solutions = await import(`../curriculum/html/2/solutions.html`);
+  return { ...data, seed, solutions };
 };
